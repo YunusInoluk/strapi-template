@@ -1,3 +1,24 @@
+# Marsbox / Volaso Strapi CMS
+
+Headless CMS for the Marsbox marketing site (Next.js on Vercel).
+
+## Marsbox landing page seed
+
+Demo content from the client Wix reference (Volaso landing page) lives in `data/marsbox.json`.
+Reference images and hero video are in `data/uploads/`.
+
+```bash
+# Import / update Volaso global + landing page (EN + TR)
+npm run seed:marsbox
+
+# Re-import after edits to marsbox.json
+npm run seed:marsbox -- --force
+```
+
+On first Strapi boot, `src/marsbox-seed.js` also runs automatically (once per environment).
+
+---
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.

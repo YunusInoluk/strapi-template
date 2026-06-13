@@ -1,6 +1,7 @@
 'use strict';
 
 const seedBootstrap = require('./bootstrap');
+const { importMarsboxSeed } = require('./marsbox-seed');
 
 // Public REST permissions required by the Next.js site.
 const PUBLIC_PERMISSIONS = {
@@ -66,6 +67,7 @@ module.exports = {
    */
   async bootstrap({ strapi }) {
     await seedBootstrap();
+    await importMarsboxSeed();
     await ensureLocales(strapi);
     await ensurePublicPermissions(strapi);
   },

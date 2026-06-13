@@ -1,0 +1,265 @@
+{
+  "global": {
+    "siteName": "Volaso",
+    "siteDescription": "A greener, faster self-driving delivery solution for local shipping.",
+    "distributorLoginUrl": "https://distributor.example.com",
+    "configuratorUrl": "https://configurator.example.com",
+    "defaultSeo": {
+      "metaTitle": "Volaso — The Future of Delivery",
+      "metaDescription": "Discover a greener, faster self-driving delivery solution with Volaso.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "logo": "robot-dark-background.jpg",
+    "favicon": "volaso-favicon.ico",
+    "nav": [
+      { "label": "Technology", "href": "/products", "external": false },
+      { "label": "About", "href": "/about", "external": false }
+    ],
+    "footerColumns": [
+      {
+        "title": "LEGAL",
+        "links": [
+          { "label": "Terms & Conditions", "href": "/terms", "external": false },
+          { "label": "Privacy Policy", "href": "/privacy", "external": false }
+        ]
+      }
+    ],
+    "social": [
+      { "label": "LinkedIn", "href": "https://linkedin.com", "external": true },
+      { "label": "Facebook", "href": "https://facebook.com", "external": true },
+      { "label": "Instagram", "href": "https://instagram.com", "external": true }
+    ],
+    "contact": {
+      "email": "info@mysite.com",
+      "phone": "Tel: 123-456-7890",
+      "addressLines": "500 Terry Francine St., San Francisco CA 94158"
+    }
+  },
+  "globalTr": {
+    "siteDescription": "Yerel teslimat için daha yeşil ve daha hızlı otonom teslimat çözümü.",
+    "defaultSeo": {
+      "metaTitle": "Volaso — Teslimatın Geleceği",
+      "metaDescription": "Volaso ile daha yeşil ve daha hızlı otonom teslimat çözümünü keşfedin.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "nav": [
+      { "label": "Teknoloji", "href": "/products", "external": false },
+      { "label": "Hakkımızda", "href": "/about", "external": false }
+    ],
+    "footerColumns": [
+      {
+        "title": "YASAL",
+        "links": [
+          { "label": "Şartlar ve Koşullar", "href": "/terms", "external": false },
+          { "label": "Gizlilik Politikası", "href": "/privacy", "external": false }
+        ]
+      }
+    ]
+  },
+  "partners": [
+    { "name": "Northwind Logistics", "logo": "default-image.png", "url": "https://example.com" },
+    { "name": "Urban Retail Group", "logo": "default-image.png", "url": "https://example.com" },
+    { "name": "Metro Supply Co.", "logo": "default-image.png", "url": "https://example.com" },
+    { "name": "Pacific Freight", "logo": "default-image.png", "url": "https://example.com" }
+  ],
+  "landingPageEn": {
+    "seo": {
+      "metaTitle": "Volaso — The Future of Delivery",
+      "metaDescription": "Discover a greener, faster self-driving delivery solution with Volaso.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "sections": [
+      {
+        "__component": "sections.hero",
+        "heading": "The Future of Delivery Is Here",
+        "subheading": "DISCOVER A GREENER, FASTER SELF-DRIVING DELIVERY SOLUTION WITH VOLASO.",
+        "backgroundVideo": "hero-video.mp4",
+        "backgroundImage": "robot-dark-background.jpg"
+      },
+      {
+        "__component": "sections.statement",
+        "eyebrow": "VISION",
+        "heading": "We're Here to Revolutionize the World of Local Shipping",
+        "body": "Volaso builds autonomous delivery robots designed for dense urban environments. Our mission is to make last-mile logistics cleaner, quieter, and more reliable for businesses and communities.",
+        "image": "robot-dark-background.jpg",
+        "layout": "imageRight",
+        "theme": "dark"
+      },
+      {
+        "__component": "sections.feature-grid",
+        "eyebrow": "OUR PRODUCT",
+        "heading": "Fully Autonomous, Uncompromisingly Sustainable",
+        "theme": "light",
+        "features": [
+          {
+            "eyebrow": "OPTIMIZED BATTERY EFFICIENCY",
+            "image": "battery.jpg",
+            "metrics": [
+              { "value": "223 Mi", "label": "Electric Range" },
+              { "value": "30 Min", "label": "to Fully Charge" }
+            ],
+            "cta": { "label": "Read More", "href": "/products", "style": "ghost" }
+          },
+          {
+            "eyebrow": "COMPACT",
+            "image": "robot-back-view.jpg",
+            "metrics": [
+              { "value": "50 Kg", "label": "Payload Capacity" },
+              { "value": "60 Liter", "label": "Storage Compartment" }
+            ]
+          },
+          {
+            "eyebrow": "ADVANCED SENSOR TECHNOLOGY",
+            "image": "sensor.jpg",
+            "metrics": [
+              { "value": "360°", "label": "Sensors coverage" },
+              { "value": "85%", "label": "Improved Reaction Time" }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "sections.image-banner",
+        "eyebrow": "WHY VOLASO",
+        "heading": "A Different Approach, Using a New Method of Manufacturing",
+        "body": "We combine precision engineering with scalable production to deliver robots that are built for real-world routes, not just prototypes.",
+        "image": "factory.jpg",
+        "cta": { "label": "READ MORE", "href": "/about", "style": "ghost" },
+        "parallax": true
+      },
+      {
+        "__component": "sections.stats",
+        "eyebrow": "COMPANY",
+        "heading": "Volaso in Numbers",
+        "theme": "dark",
+        "image": "robot-dark-background.jpg",
+        "stats": [
+          { "value": "247", "label": "Employees" },
+          { "value": "5", "label": "Core Teams" },
+          { "value": "326", "label": "Partners Worldwide" },
+          { "value": "$200m", "label": "Capital" }
+        ]
+      },
+      {
+        "__component": "sections.configurator",
+        "eyebrow": "CONFIGURE",
+        "heading": "Configure Your Robot",
+        "body": "Explore configurations, options, and finishes in our interactive 3D configurator."
+      },
+      {
+        "__component": "sections.partners",
+        "eyebrow": "COLLABORATION",
+        "heading": "Our Industry Partners",
+        "partnerKeys": ["Northwind Logistics", "Urban Retail Group", "Metro Supply Co.", "Pacific Freight"]
+      },
+      {
+        "__component": "sections.newsletter",
+        "heading": "Be the First to Receive the Latest News From Volaso.",
+        "emailLabel": "Email *",
+        "consentLabel": "Yes, subscribe me to your newsletter.",
+        "submitLabel": "SUBSCRIBE",
+        "successMessage": "Thank you for subscribing to Volaso updates."
+      }
+    ]
+  },
+  "landingPageTr": {
+    "seo": {
+      "metaTitle": "Volaso — Teslimatın Geleceği",
+      "metaDescription": "Volaso ile daha yeşil ve daha hızlı otonom teslimat çözümünü keşfedin.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "sections": [
+      {
+        "__component": "sections.hero",
+        "heading": "Teslimatın Geleceği Burada",
+        "subheading": "VOLASO İLE DAHA YEŞİL VE DAHA HIZLI OTONOM TESLİMAT ÇÖZÜMÜNÜ KEŞFEDİN.",
+        "backgroundVideo": "hero-video.mp4",
+        "backgroundImage": "robot-dark-background.jpg"
+      },
+      {
+        "__component": "sections.statement",
+        "eyebrow": "VİZYON",
+        "heading": "Yerel Teslimat Dünyasını Dönüştürmek İçin Buradayız",
+        "body": "Volaso, yoğun kentsel ortamlar için tasarlanmış otonom teslimat robotları üretir. Amacımız, son kilometre lojistiğini işletmeler ve topluluklar için daha temiz, daha sessiz ve daha güvenilir hale getirmek.",
+        "image": "robot-dark-background.jpg",
+        "layout": "imageRight",
+        "theme": "dark"
+      },
+      {
+        "__component": "sections.feature-grid",
+        "eyebrow": "ÜRÜNÜMÜZ",
+        "heading": "Tam Otonom, Sürdürülebilirlikten Ödün Vermeyen",
+        "theme": "light",
+        "features": [
+          {
+            "eyebrow": "OPTİMİZE EDİLMİŞ BATARYA VERİMLİLİĞİ",
+            "image": "battery.jpg",
+            "metrics": [
+              { "value": "223 Mi", "label": "Elektrik Menzili" },
+              { "value": "30 Dk", "label": "Tam Şarj Süresi" }
+            ],
+            "cta": { "label": "Devamını Oku", "href": "/products", "style": "ghost" }
+          },
+          {
+            "eyebrow": "KOMPAKT",
+            "image": "robot-back-view.jpg",
+            "metrics": [
+              { "value": "50 Kg", "label": "Taşıma Kapasitesi" },
+              { "value": "60 Litre", "label": "Depolama Alanı" }
+            ]
+          },
+          {
+            "eyebrow": "GELİŞMİŞ SENSÖR TEKNOLOJİSİ",
+            "image": "sensor.jpg",
+            "metrics": [
+              { "value": "360°", "label": "Sensör kapsamı" },
+              { "value": "85%", "label": "Geliştirilmiş Tepki Süresi" }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "sections.image-banner",
+        "eyebrow": "NEDEN VOLASO",
+        "heading": "Yeni Bir Üretim Yöntemiyle Farklı Bir Yaklaşım",
+        "body": "Gerçek dünya rotaları için tasarlanmış robotları, yalnızca prototipler için değil, ölçeklenebilir üretimle sunuyoruz.",
+        "image": "factory.jpg",
+        "cta": { "label": "DEVAMINI OKU", "href": "/about", "style": "ghost" },
+        "parallax": true
+      },
+      {
+        "__component": "sections.stats",
+        "eyebrow": "ŞİRKET",
+        "heading": "Volaso Rakamlarla",
+        "theme": "dark",
+        "image": "robot-dark-background.jpg",
+        "stats": [
+          { "value": "247", "label": "Çalışan" },
+          { "value": "5", "label": "Temel Ekip" },
+          { "value": "326", "label": "Dünya Çapında Ortak" },
+          { "value": "$200m", "label": "Sermaye" }
+        ]
+      },
+      {
+        "__component": "sections.configurator",
+        "eyebrow": "YAPILANDIR",
+        "heading": "Robotunuzu Yapılandırın",
+        "body": "İnteraktif 3D konfigüratörümüzde seçenekleri ve donanımları keşfedin."
+      },
+      {
+        "__component": "sections.partners",
+        "eyebrow": "İŞBİRLİĞİ",
+        "heading": "Sektör Ortaklarımız",
+        "partnerKeys": ["Northwind Logistics", "Urban Retail Group", "Metro Supply Co.", "Pacific Freight"]
+      },
+      {
+        "__component": "sections.newsletter",
+        "heading": "Volaso'dan En Son Haberleri İlk Siz Alın.",
+        "emailLabel": "E-posta *",
+        "consentLabel": "Bültene abone olmak istiyorum.",
+        "submitLabel": "ABONE OL",
+        "successMessage": "Volaso güncellemelerine abone olduğunuz için teşekkürler."
+      }
+    ]
+  }
+}
