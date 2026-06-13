@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_newsletters",
+  "info": {
+    "displayName": "Newsletter",
+    "icon": "envelop",
+    "description": "Email subscribe form"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
+    },
+    "consentLabel": {
+      "type": "string"
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Subscribe"
+    },
+    "successMessage": {
+      "type": "string"
+    }
+  }
+}

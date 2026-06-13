@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_configurators",
+  "info": {
+    "displayName": "Configurator",
+    "icon": "cube",
+    "description": "Embeds the external 3D configurator via iframe"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "iframeUrl": {
+      "type": "string"
+    }
+  }
+}

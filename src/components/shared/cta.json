@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_ctas",
+  "info": {
+    "displayName": "Cta",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "external": {
+      "type": "boolean",
+      "default": false
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": ["primary", "ghost"],
+      "default": "primary"
+    }
+  }
+}

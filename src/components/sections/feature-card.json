@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_feature_cards",
+  "info": {
+    "displayName": "Feature Card",
+    "icon": "stack",
+    "description": "Product feature with image, metrics and copy"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "metrics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.metric"
+    },
+    "body": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}

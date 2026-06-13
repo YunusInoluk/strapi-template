@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_feature_grids",
+  "info": {
+    "displayName": "Feature Grid",
+    "icon": "grid",
+    "description": "Heading + a set of feature cards"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "light"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.feature-card"
+    }
+  }
+}

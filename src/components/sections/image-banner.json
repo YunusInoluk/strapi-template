@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sections_image_banners",
+  "info": {
+    "displayName": "Image Banner",
+    "icon": "picture",
+    "description": "Full-bleed parallax image with heading"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "parallax": {
+      "type": "boolean",
+      "default": true
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}
