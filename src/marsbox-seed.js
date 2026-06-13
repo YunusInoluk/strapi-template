@@ -3,7 +3,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const mime = require('mime-types');
-const marsboxData = require('../data/marsbox.json');
+const marsboxEn = require('../data/marsbox-en.json');
+const marsboxTr = require('../data/marsbox-tr.json');
 
 const MEDIA_FIELDS = {
   'sections.hero': ['backgroundVideo', 'backgroundImage'],
@@ -133,10 +134,10 @@ async function resolveSeo(seo) {
   return resolved;
 }
 
-async function importPartners() {
+async function importPartners(partners) {
   const partnerMap = {};
 
-  for (const partner of marsboxData.partners) {
+  for (const partner of partners) {
     const existing = await strapi.documents('api::partner.partner').findFirst({
       filters: { name: { $eq: partner.name } },
     });
@@ -229,7 +230,34 @@ async function upsertLandingPage(locale, landingData, partnerMap) {
   return documentId;
 }
 
-async function importMarsboxSeed({ force = false } = {}) {
+async function importEnglishSeed(partnerMap) {
+  await upsertGlobal('en', marsboxEn.global);
+  await upsertLandingPage('en', marsboxEn.landingPage, partnerMap);
+}
+
+async function importTurkishSeed(partnerMap, enGlobal) {
+  const trGlobal = {
+    siteName: enGlobal.siteName,
+    siteDescription: marsboxTr.global.siteDescription,
+    distributorLoginUrl: enGlobal.distributorLoginUrl,
+    configuratorUrl: enGlobal.configuratorUrl,
+    defaultSeo: {
+      ...marsboxTr.global.defaultSeo,
+      shareImage: enGlobal.defaultSeo?.shareImage,
+    },
+    nav: marsboxTr.global.nav,
+    footerColumns: marsboxTr.global.footerColumns,
+    social: enGlobal.social,
+    contact: enGlobal.contact,
+    favicon: enGlobal.favicon,
+    logo: enGlobal.logo,
+  };
+
+  await upsertGlobal('tr', trGlobal);
+  await upsertLandingPage('tr', marsboxTr.landingPage, partnerMap);
+}
+
+async function importMarsboxSeed({ force = false, withTr = false } = {}) {
   if (!force && !(await shouldImportMarsboxSeed())) {
     strapi.log.info(
       'Marsbox seed already imported. Run npm run seed:marsbox -- --force to reimport.',
@@ -246,37 +274,17 @@ async function importMarsboxSeed({ force = false } = {}) {
     await pluginStore.set({ key: 'marsboxSeedHasRun', value: true });
   }
 
-  strapi.log.info('Importing Marsbox / Volaso landing page seed...');
+  strapi.log.info('Importing Marsbox / Volaso English landing page seed...');
 
-  const partnerMap = await importPartners();
+  const partnerMap = await importPartners(marsboxEn.partners);
+  await importEnglishSeed(partnerMap);
 
-  const globalEn = { ...marsboxData.global };
-
-  await upsertGlobal('en', globalEn);
-
-  if (marsboxData.globalTr) {
-    await upsertGlobal('tr', {
-      siteName: marsboxData.global.siteName,
-      siteDescription: marsboxData.globalTr.siteDescription,
-      distributorLoginUrl: marsboxData.global.distributorLoginUrl,
-      configuratorUrl: marsboxData.global.configuratorUrl,
-      defaultSeo: {
-        ...marsboxData.globalTr.defaultSeo,
-        shareImage: marsboxData.global.defaultSeo.shareImage,
-      },
-      nav: marsboxData.globalTr.nav,
-      footerColumns: marsboxData.globalTr.footerColumns,
-      social: marsboxData.global.social,
-      contact: marsboxData.global.contact,
-      favicon: marsboxData.global.favicon,
-      logo: marsboxData.global.logo,
-    });
+  if (withTr) {
+    strapi.log.info('Importing Turkish localizations...');
+    await importTurkishSeed(partnerMap, marsboxEn.global);
   }
-
-  await upsertLandingPage('en', marsboxData.landingPageEn, partnerMap);
-  await upsertLandingPage('tr', marsboxData.landingPageTr, partnerMap);
 
   strapi.log.info('Marsbox seed import complete.');
 }
 
-module.exports = { importMarsboxSeed };
+module.exports = { importMarsboxSeed, importEnglishSeed, importPartners };

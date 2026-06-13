@@ -4,18 +4,27 @@ Headless CMS for the Marsbox marketing site (Next.js on Vercel).
 
 ## Marsbox landing page seed
 
-Demo content from the client Wix reference (Volaso landing page) lives in `data/marsbox.json`.
+Demo content from the client Wix reference (Volaso landing page).
+
+| File | Locale | Purpose |
+| --- | --- | --- |
+| `data/marsbox-en.json` | English (default) | Global + landing page |
+| `data/marsbox-tr.json` | Turkish | Optional localization |
+
 Reference images and hero video are in `data/uploads/`.
 
 ```bash
-# Import / update Volaso global + landing page (EN + TR)
-npm run seed:marsbox
+# English only (default — use this for v1)
+npm run seed:marsbox:en
 
-# Re-import after edits to marsbox.json
+# English + force reimport
 npm run seed:marsbox -- --force
+
+# English + Turkish localizations
+npm run seed:marsbox -- --force --with-tr
 ```
 
-On first Strapi boot, `src/marsbox-seed.js` also runs automatically (once per environment).
+On first Strapi boot, `src/marsbox-seed.js` imports **English only** automatically.
 
 ---
 

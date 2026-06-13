@@ -9,6 +9,7 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "seed:marsbox": "node ./scripts/seed-marsbox.js",
+    "seed:marsbox:en": "node ./scripts/seed-marsbox-en.js",
     "start": "strapi start",
     "strapi": "strapi"
   },

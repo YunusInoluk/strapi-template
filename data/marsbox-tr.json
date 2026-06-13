@@ -1,0 +1,123 @@
+{
+  "global": {
+    "siteDescription": "Yerel teslimat için daha yeşil ve daha hızlı otonom teslimat çözümü.",
+    "defaultSeo": {
+      "metaTitle": "Volaso — Teslimatın Geleceği",
+      "metaDescription": "Volaso ile daha yeşil ve daha hızlı otonom teslimat çözümünü keşfedin.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "nav": [
+      { "label": "Teknoloji", "href": "/products", "external": false },
+      { "label": "Hakkımızda", "href": "/about", "external": false }
+    ],
+    "footerColumns": [
+      {
+        "title": "YASAL",
+        "links": [
+          { "label": "Şartlar ve Koşullar", "href": "/terms", "external": false },
+          { "label": "Gizlilik Politikası", "href": "/privacy", "external": false }
+        ]
+      }
+    ]
+  },
+  "landingPage": {
+    "seo": {
+      "metaTitle": "Volaso — Teslimatın Geleceği",
+      "metaDescription": "Volaso ile daha yeşil ve daha hızlı otonom teslimat çözümünü keşfedin.",
+      "shareImage": "robot-dark-background.jpg"
+    },
+    "sections": [
+      {
+        "__component": "sections.hero",
+        "heading": "Teslimatın Geleceği Burada",
+        "subheading": "VOLASO İLE DAHA YEŞİL VE DAHA HIZLI OTONOM TESLİMAT ÇÖZÜMÜNÜ KEŞFEDİN.",
+        "backgroundVideo": "hero-video.mp4",
+        "backgroundImage": "robot-dark-background.jpg"
+      },
+      {
+        "__component": "sections.statement",
+        "eyebrow": "VİZYON",
+        "heading": "Yerel Teslimat Dünyasını Dönüştürmek İçin Buradayız",
+        "body": "Volaso, yoğun kentsel ortamlar için tasarlanmış otonom teslimat robotları üretir. Amacımız, son kilometre lojistiğini işletmeler ve topluluklar için daha temiz, daha sessiz ve daha güvenilir hale getirmek.",
+        "image": "robot-dark-background.jpg",
+        "layout": "imageRight",
+        "theme": "dark"
+      },
+      {
+        "__component": "sections.feature-grid",
+        "eyebrow": "ÜRÜNÜMÜZ",
+        "heading": "Tam Otonom, Sürdürülebilirlikten Ödün Vermeyen",
+        "theme": "light",
+        "features": [
+          {
+            "eyebrow": "OPTİMİZE EDİLMİŞ BATARYA VERİMLİLİĞİ",
+            "image": "battery.jpg",
+            "metrics": [
+              { "value": "223 Mi", "label": "Elektrik Menzili" },
+              { "value": "30 Dk", "label": "Tam Şarj Süresi" }
+            ],
+            "cta": { "label": "Devamını Oku", "href": "/products", "style": "ghost" }
+          },
+          {
+            "eyebrow": "KOMPAKT",
+            "image": "robot-back-view.jpg",
+            "metrics": [
+              { "value": "50 Kg", "label": "Taşıma Kapasitesi" },
+              { "value": "60 Litre", "label": "Depolama Alanı" }
+            ]
+          },
+          {
+            "eyebrow": "GELİŞMİŞ SENSÖR TEKNOLOJİSİ",
+            "image": "sensor.jpg",
+            "metrics": [
+              { "value": "360°", "label": "Sensör kapsamı" },
+              { "value": "85%", "label": "Geliştirilmiş Tepki Süresi" }
+            ]
+          }
+        ]
+      },
+      {
+        "__component": "sections.image-banner",
+        "eyebrow": "NEDEN VOLASO",
+        "heading": "Yeni Bir Üretim Yöntemiyle Farklı Bir Yaklaşım",
+        "body": "Gerçek dünya rotaları için tasarlanmış robotları, yalnızca prototipler için değil, ölçeklenebilir üretimle sunuyoruz.",
+        "image": "factory.jpg",
+        "cta": { "label": "DEVAMINI OKU", "href": "/about", "style": "ghost" },
+        "parallax": true
+      },
+      {
+        "__component": "sections.stats",
+        "eyebrow": "ŞİRKET",
+        "heading": "Volaso Rakamlarla",
+        "theme": "dark",
+        "image": "robot-dark-background.jpg",
+        "stats": [
+          { "value": "247", "label": "Çalışan" },
+          { "value": "5", "label": "Temel Ekip" },
+          { "value": "326", "label": "Dünya Çapında Ortak" },
+          { "value": "$200m", "label": "Sermaye" }
+        ]
+      },
+      {
+        "__component": "sections.configurator",
+        "eyebrow": "YAPILANDIR",
+        "heading": "Robotunuzu Yapılandırın",
+        "body": "İnteraktif 3D konfigüratörümüzde seçenekleri ve donanımları keşfedin."
+      },
+      {
+        "__component": "sections.partners",
+        "eyebrow": "İŞBİRLİĞİ",
+        "heading": "Sektör Ortaklarımız",
+        "partnerKeys": ["Northwind Logistics", "Urban Retail Group", "Metro Supply Co.", "Pacific Freight"]
+      },
+      {
+        "__component": "sections.newsletter",
+        "heading": "Volaso'dan En Son Haberleri İlk Siz Alın.",
+        "emailLabel": "E-posta *",
+        "consentLabel": "Bültene abone olmak istiyorum.",
+        "submitLabel": "ABONE OL",
+        "successMessage": "Volaso güncellemelerine abone olduğunuz için teşekkürler."
+      }
+    ]
+  }
+}

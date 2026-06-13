@@ -18,9 +18,21 @@ async function ensureLocales(strapi) {
     const localeService = strapi.plugin('i18n').service('locales');
     const locales = await localeService.find();
     const codes = (locales || []).map((locale) => locale.code);
+
+    if (!codes.includes('en')) {
+      await localeService.create({ code: 'en', name: 'English (en)' });
+      strapi.log.info('i18n: created "en" locale');
+    }
+
     if (!codes.includes('tr')) {
       await localeService.create({ code: 'tr', name: 'Turkish (tr)' });
       strapi.log.info('i18n: created "tr" locale');
+    }
+
+    const defaultLocale = locales.find((locale) => locale.isDefault);
+    if (!defaultLocale || defaultLocale.code !== 'en') {
+      await localeService.setDefaultLocale({ code: 'en' });
+      strapi.log.info('i18n: set default locale to "en"');
     }
   } catch (error) {
     strapi.log.error('Failed to ensure locales');
@@ -67,7 +79,7 @@ module.exports = {
    */
   async bootstrap({ strapi }) {
     await seedBootstrap();
-    await importMarsboxSeed();
+    await importMarsboxSeed({ withTr: false });
     await ensureLocales(strapi);
     await ensurePublicPermissions(strapi);
   },
