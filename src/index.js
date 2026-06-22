@@ -89,12 +89,16 @@ module.exports = {
       }
 
       if (WATCHED.has(context.uid) && ['create', 'update', 'publish'].includes(context.action)) {
-        const incoming = context.params?.data?.seo?.metaTitle;
+        let dataDump = '(no data)';
+        try {
+          dataDump = JSON.stringify(context.params?.data ?? null).slice(0, 1500);
+        } catch (e) {
+          dataDump = `(unserializable: ${e.message})`;
+        }
         strapi.log.info(
           `[WRITE-TRACE] ${context.uid} action=${context.action} ` +
             `status=${context.params?.status ?? '-'} locale=${context.params?.locale ?? '-'} ` +
-            `seo.metaTitle=${incoming === undefined ? '(unchanged)' : JSON.stringify(incoming)} ` +
-            `stack=${new Error().stack?.split('\n')[2]?.trim()}`,
+            `data=${dataDump}`,
         );
       }
 
