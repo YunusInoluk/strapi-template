@@ -73,6 +73,11 @@ module.exports = {
    * your application is initialized.
    */
   register({ strapi }) {
+    if (process.env.DISABLE_STRIP_MIDDLEWARE === '1') {
+      strapi.log.info('stripComponentIds middleware disabled via env flag.');
+      return;
+    }
+
     strapi.documents.use(async (context, next) => {
       if (['create', 'update'].includes(context.action) && context.params?.data) {
         stripComponentIds(context.params.data);
