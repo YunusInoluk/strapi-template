@@ -73,9 +73,9 @@ module.exports = {
    * your application is initialized.
    */
   register({ strapi }) {
-    if (process.env.DISABLE_STRIP_MIDDLEWARE === '1') {
-      strapi.log.info('stripComponentIds middleware disabled via env flag.');
-      return;
+    const stripDisabled = process.env.DISABLE_STRIP_MIDDLEWARE === '1';
+    if (stripDisabled) {
+      strapi.log.info('[TRACE] stripComponentIds DISABLED via env flag (tracing still on).');
     }
 
     const WATCHED = new Set([
@@ -84,25 +84,42 @@ module.exports = {
     ]);
 
     strapi.documents.use(async (context, next) => {
-      if (['create', 'update'].includes(context.action) && context.params?.data) {
-        stripComponentIds(context.params.data);
-      }
+      const watched =
+        WATCHED.has(context.uid) &&
+        ['create', 'update', 'publish'].includes(context.action);
 
-      if (WATCHED.has(context.uid) && ['create', 'update', 'publish'].includes(context.action)) {
+      if (watched) {
         let dataDump = '(no data)';
         try {
-          dataDump = JSON.stringify(context.params?.data ?? null).slice(0, 1500);
+          dataDump = JSON.stringify(context.params?.data ?? null).slice(0, 1800);
         } catch (e) {
           dataDump = `(unserializable: ${e.message})`;
         }
         strapi.log.info(
-          `[WRITE-TRACE] ${context.uid} action=${context.action} ` +
+          `[WRITE-TRACE-IN] ${context.uid} action=${context.action} ` +
             `status=${context.params?.status ?? '-'} locale=${context.params?.locale ?? '-'} ` +
-            `data=${dataDump}`,
+            `strip=${stripDisabled ? 'off' : 'on'} data=${dataDump}`,
         );
       }
 
-      return next();
+      if (!stripDisabled && ['create', 'update'].includes(context.action) && context.params?.data) {
+        stripComponentIds(context.params.data);
+      }
+
+      try {
+        const result = await next();
+        if (watched) {
+          strapi.log.info(`[WRITE-TRACE-OK] ${context.uid} action=${context.action} succeeded.`);
+        }
+        return result;
+      } catch (err) {
+        if (watched) {
+          strapi.log.error(
+            `[WRITE-TRACE-ERR] ${context.uid} action=${context.action} -> ${err.message}`,
+          );
+        }
+        throw err;
+      }
     });
   },
 
