@@ -2,6 +2,7 @@
 
 const seedBootstrap = require('./bootstrap');
 const { importMarsboxSeed } = require('./marsbox-seed');
+const { stripComponentIds } = require('./utils/strip-component-ids');
 
 // Public REST permissions required by the Next.js site.
 const PUBLIC_PERMISSIONS = {
@@ -71,7 +72,15 @@ module.exports = {
    * An asynchronous register function that runs before
    * your application is initialized.
    */
-  register(/* { strapi } */) {},
+  register({ strapi }) {
+    strapi.documents.use(async (context, next) => {
+      if (['create', 'update'].includes(context.action) && context.params?.data) {
+        stripComponentIds(context.params.data);
+      }
+
+      return next();
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
