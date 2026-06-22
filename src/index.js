@@ -78,9 +78,24 @@ module.exports = {
       return;
     }
 
+    const WATCHED = new Set([
+      'api::landing-page.landing-page',
+      'api::global.global',
+    ]);
+
     strapi.documents.use(async (context, next) => {
       if (['create', 'update'].includes(context.action) && context.params?.data) {
         stripComponentIds(context.params.data);
+      }
+
+      if (WATCHED.has(context.uid) && ['create', 'update', 'publish'].includes(context.action)) {
+        const incoming = context.params?.data?.seo?.metaTitle;
+        strapi.log.info(
+          `[WRITE-TRACE] ${context.uid} action=${context.action} ` +
+            `status=${context.params?.status ?? '-'} locale=${context.params?.locale ?? '-'} ` +
+            `seo.metaTitle=${incoming === undefined ? '(unchanged)' : JSON.stringify(incoming)} ` +
+            `stack=${new Error().stack?.split('\n')[2]?.trim()}`,
+        );
       }
 
       return next();

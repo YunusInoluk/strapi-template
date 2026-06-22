@@ -296,7 +296,7 @@ async function importTurkishSeed(
 async function importMarsboxSeed({ force = false, withTr = false } = {}) {
   if (!force && !(await shouldImportMarsboxSeed())) {
     strapi.log.info(
-      "Marsbox seed already imported. Run npm run seed:marsbox -- --force to reimport.",
+      "[SEED-TRACE] Marsbox seed SKIPPED (guard already set). Run with --force to reimport.",
     );
     return;
   }
@@ -310,7 +310,7 @@ async function importMarsboxSeed({ force = false, withTr = false } = {}) {
     await pluginStore.set({ key: "marsboxSeedHasRun", value: true });
   }
 
-  strapi.log.info("Importing Marsbox / Volaso English landing page seed...");
+  strapi.log.info(`[SEED-TRACE] Running Marsbox seed import (force=${force})...`);
 
   const partnerMap = await importPartners(marsboxEn.partners);
   await importEnglishSeed(partnerMap, { overwrite: force });
