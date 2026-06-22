@@ -323,4 +323,10 @@ async function importMarsboxSeed({ force = false, withTr = false } = {}) {
   strapi.log.info("Marsbox seed import complete.");
 }
 
-module.exports = { importMarsboxSeed, importEnglishSeed, importPartners };
+module.exports = {
+  importMarsboxSeed,
+  importEnglishSeed,
+  importPartners,
+  upsertLandingPage,
+  upsertGlobal,
+};

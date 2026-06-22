@@ -3,6 +3,7 @@
 const seedBootstrap = require('./bootstrap');
 const { importMarsboxSeed } = require('./marsbox-seed');
 const { stripComponentIds } = require('./utils/strip-component-ids');
+const { repairLandingPage } = require('./repair-landing-page');
 
 // Public REST permissions required by the Next.js site.
 const PUBLIC_PERMISSIONS = {
@@ -132,5 +133,6 @@ module.exports = {
     await importMarsboxSeed({ withTr: false });
     await ensureLocales(strapi);
     await ensurePublicPermissions(strapi);
+    await repairLandingPage();
   },
 };
