@@ -168,6 +168,7 @@ export interface SectionsStats extends Struct.ComponentSchema {
     icon: 'chartBar';
   };
   attributes: {
+    backgroundVideo: Schema.Attribute.Media<'files' | 'videos'>;
     eyebrow: Schema.Attribute.String;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'>;

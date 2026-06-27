@@ -16,18 +16,31 @@
     },
     "theme": {
       "type": "enumeration",
-      "enum": ["dark", "light"],
-      "default": "dark"
+      "default": "dark",
+      "enum": [
+        "dark",
+        "light"
+      ]
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "stats": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.metric"
+      "component": "shared.metric",
+      "repeatable": true
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "videos"
+      ]
     }
   }
 }
