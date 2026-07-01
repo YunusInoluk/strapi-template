@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_split_items",
+  "info": {
+    "displayName": "Split Item",
+    "icon": "picture",
+    "description": "Editorial split block with image and copy"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": true
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    }
+  }
+}

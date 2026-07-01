@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_split_features",
+  "info": {
+    "displayName": "Split Feature",
+    "icon": "layout",
+    "description": "Asymmetric editorial collage of image + copy blocks"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "light"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["mediaStart", "mediaEnd"],
+      "default": "mediaStart"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.split-item"
+    }
+  }
+}

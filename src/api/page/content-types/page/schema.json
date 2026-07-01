@@ -54,7 +54,8 @@
         "sections.stats",
         "sections.partners",
         "sections.configurator",
-        "sections.newsletter"
+        "sections.newsletter",
+        "sections.split-feature"
       ],
       "pluginOptions": {
         "i18n": {
