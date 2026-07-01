@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_section_intros",
+  "info": {
+    "displayName": "Section Intro",
+    "icon": "layer",
+    "description": "Eyebrow + heading with body copy in a two-column intro block (no image)"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "light"
+    }
+  }
+}

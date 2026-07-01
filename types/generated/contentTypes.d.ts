@@ -752,12 +752,15 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       [
         'sections.hero',
         'sections.statement',
+        'sections.section-intro',
         'sections.feature-grid',
         'sections.image-banner',
         'sections.stats',
         'sections.partners',
+        'sections.team',
         'sections.configurator',
         'sections.newsletter',
+        'sections.split-feature',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -925,6 +928,38 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
+  collectionName: 'teams';
+  info: {
+    description: 'Leadership and team members shown on the About page';
+    displayName: 'Team Member';
+    pluralName: 'teams';
+    singularName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::team.team'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    theme: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'dark'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1452,6 +1487,7 @@ declare module '@strapi/strapi' {
       'api::partner.partner': ApiPartnerPartner;
       'api::product.product': ApiProductProduct;
       'api::subscriber.subscriber': ApiSubscriberSubscriber;
+      'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -140,6 +140,55 @@ export interface SectionsPartners extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsSectionIntro extends Struct.ComponentSchema {
+  collectionName: 'components_sections_section_intros';
+  info: {
+    description: 'Eyebrow + heading with body copy in a two-column intro block (no image)';
+    displayName: 'Section Intro';
+    icon: 'layer';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    theme: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
+export interface SectionsSplitFeature extends Struct.ComponentSchema {
+  collectionName: 'components_sections_split_features';
+  info: {
+    description: 'Asymmetric editorial collage of image + copy blocks';
+    displayName: 'Split Feature';
+    icon: 'layout';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'sections.split-item', true>;
+    layout: Schema.Attribute.Enumeration<['mediaStart', 'mediaEnd']> &
+      Schema.Attribute.DefaultTo<'mediaStart'>;
+    theme: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'light'>;
+  };
+}
+
+export interface SectionsSplitItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_split_items';
+  info: {
+    description: 'Editorial split block with image and copy';
+    displayName: 'Split Item';
+    icon: 'picture';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsStatement extends Struct.ComponentSchema {
   collectionName: 'components_sections_statements';
   info: {
@@ -175,6 +224,20 @@ export interface SectionsStats extends Struct.ComponentSchema {
     stats: Schema.Attribute.Component<'shared.metric', true>;
     theme: Schema.Attribute.Enumeration<['dark', 'light']> &
       Schema.Attribute.DefaultTo<'dark'>;
+  };
+}
+
+export interface SectionsTeam extends Struct.ComponentSchema {
+  collectionName: 'components_sections_teams';
+  info: {
+    description: 'Leadership team member cards for the About page';
+    displayName: 'Team';
+    icon: 'user';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    members: Schema.Attribute.Relation<'oneToMany', 'api::team.team'>;
   };
 }
 
@@ -292,8 +355,12 @@ declare module '@strapi/strapi' {
       'sections.image-banner': SectionsImageBanner;
       'sections.newsletter': SectionsNewsletter;
       'sections.partners': SectionsPartners;
+      'sections.section-intro': SectionsSectionIntro;
+      'sections.split-feature': SectionsSplitFeature;
+      'sections.split-item': SectionsSplitItem;
       'sections.statement': SectionsStatement;
       'sections.stats': SectionsStats;
+      'sections.team': SectionsTeam;
       'shared.cta': SharedCta;
       'shared.link': SharedLink;
       'shared.media': SharedMedia;

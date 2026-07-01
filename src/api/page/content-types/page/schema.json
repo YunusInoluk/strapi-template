@@ -49,6 +49,7 @@
       "components": [
         "sections.hero",
         "sections.statement",
+        "sections.section-intro",
         "sections.feature-grid",
         "sections.image-banner",
         "sections.stats",
