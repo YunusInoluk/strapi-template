@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_teams",
+  "info": {
+    "displayName": "Team",
+    "icon": "user",
+    "description": "Leadership team member cards for the About page"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
+    }
+  }
+}

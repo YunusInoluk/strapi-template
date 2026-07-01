@@ -53,6 +53,7 @@
         "sections.image-banner",
         "sections.stats",
         "sections.partners",
+        "sections.team",
         "sections.configurator",
         "sections.newsletter",
         "sections.split-feature"

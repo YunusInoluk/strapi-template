@@ -11,6 +11,7 @@ const PUBLIC_PERMISSIONS = {
   page: ['find', 'findOne'],
   product: ['find', 'findOne'],
   partner: ['find', 'findOne'],
+  team: ['find', 'findOne'],
   global: ['find'],
   subscriber: ['create'],
 };
